@@ -1,0 +1,18 @@
+body, div {
+  margin: 0;
+  padding: 10px;
+  font-family: sans-serif;
+  text-align: center;
+}
+select {
+  min-width: 25%;
+}
+button {
+  min-width: 75px;
+}
+h2 {
+  color: green;
+}
+small {
+  color: red;
+}
