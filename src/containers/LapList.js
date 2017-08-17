@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import counterToTime from '../counterToTime';
+
 class LapList extends Component {
     renderLapList() {
+        let counterDifference = 0;
         const lapListItems = this.props.lapList.map((lapListItem, index) => {
-            let centiSeconds = lapListItem;
-            const hours = Math.floor(centiSeconds / 360000);
-            centiSeconds = centiSeconds - 360000 * hours;
-            const minutes = Math.floor(centiSeconds / 6000);
-            centiSeconds = centiSeconds - 6000 * minutes;
-            const seconds = Math.floor(centiSeconds / 100);
-            centiSeconds = centiSeconds - 100 * seconds;
-            return(
-                <option key = {index}>{`${index + 1} - ` +
-                    `0${hours}`.slice(-2) + ':' +
-                    `0${minutes}`.slice(-2) + ':' +
-                    `0${seconds}`.slice(-2) + '.' +
-                    `0${centiSeconds}`.slice(-2)}
-                </option>
-            );
+            const time = counterToTime(lapListItem);
+            const timeDifference = counterToTime(lapListItem - counterDifference);
+            counterDifference = lapListItem;
+            return <option>
+                {`${index + 1} - ${time.HHMMSS}${time.CS} - - - -
+                ${timeDifference.HHMMSS}${timeDifference.CS}`}
+            </option>
         });
         return lapListItems;
     }
