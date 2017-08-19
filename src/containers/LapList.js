@@ -5,21 +5,20 @@ import counterToTime from '../counterToTime';
 
 class LapList extends Component {
     renderLapList() {
-        let counterDifference = 0;
+        let previousLap = 0;
         const lapListItems = this.props.lapList.map((lapListItem, index) => {
             const time = counterToTime(lapListItem);
-            const timeDifference = counterToTime(lapListItem - counterDifference);
-            counterDifference = lapListItem;
-            return <option>
-                {`${index + 1} - ${time.HHMMSS}${time.CS} - - - -
-                ${timeDifference.HHMMSS}${timeDifference.CS}`}
+            const timeDifference = counterToTime(lapListItem - previousLap);
+            previousLap = lapListItem;
+            return <option key = {index} selected>
+                {`${index + 1} - ${time} - - - - - ${timeDifference}`}
             </option>
         });
         return lapListItems;
     }
     render() {
         return (
-            <select size = {20}>
+            <select size = {10}>
                 {this.renderLapList()}
             </select>
         ) 

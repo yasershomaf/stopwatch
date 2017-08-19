@@ -9,12 +9,12 @@ class App extends Component {
     render() {
         const time = counterToTime(this.props.counter);
         return (
-            <div>
+            <div className = 'container'>
                 <h1>Stopwatch</h1>
                 <h2>
-                    {time.HHMMSS}
+                    {time.slice(0, -2)}
                     <small>
-                        {time.CS}
+                        {time.slice(-2)}
                     </small>
                 </h2>
                 <ButtonModes />

@@ -1,18 +1,39 @@
-body, div {
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('./fonts/digital-7 (mono).ttf');
+}
+h1, h2 {
+  font-family: 'digital-clock-font';
   margin: 0;
-  padding: 10px;
-  font-family: sans-serif;
-  text-align: center;
 }
-select {
-  min-width: 25%;
-}
-button {
-  min-width: 75px;
+h1 {
+  font-size: 350%;
 }
 h2 {
-  color: green;
+  color: white;
+  font-size: 300%;
+  background-image: url('./images/clock_background.jpg');
+  border: 1px inset;
 }
-small {
-  color: red;
+select {
+  min-width: 250px;
+  border: 1px inset;
+}
+button {
+  min-width: 125px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+div {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.container {
+  display: inline-block;
+  background-color: gray;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 10px;
 }
